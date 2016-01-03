@@ -150,7 +150,7 @@ $(function() {
         extra = {
           icon: "/dist/img/prueba.png",
           body: "The task '" + task + "' has finished. You deserve a break!",
-          vibrate: [300,100,300]
+          vibrate: [200,100,200]
         };
       }
       else {
