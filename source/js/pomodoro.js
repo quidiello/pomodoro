@@ -148,15 +148,15 @@ $(function() {
       if(type === "task") {
         title = task;
         extra = {
-          icon: "/dist/img/prueba.png",
+          icon: window.location.href + "/dist/img/logo.png",
           body: "The task '" + task + "' has finished. You deserve a break!",
-          vibrate: [200,100,200]
+          vibrate: [300,100,300]
         };
       }
       else {
         title = "Break";
         extra = {
-          icon: "/dist/img/breakLogo.jpg",
+          icon: window.location.href + "/dist/img/breakLogo.jpg",
           body: "Your break has finished. Back to work!",
           vibrate: [300,100,300]
         };
