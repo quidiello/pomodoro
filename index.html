@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro</title>
+
+  <link rel="icon" type="image/png" href="./dist/img/logo.png">
+
+  <!-- MDL framework -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-red.min.css">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- MDL modal -->
+  <link rel="stylesheet" href="./dist/css/vendors/mdl-jquery-modal-dialog.min.css">
+
+  <link rel="stylesheet" href="./dist/css/main.min.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body>
+  <section id="primary" class="card-container">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Pomodoro</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="task" required="required" list="taskList">
+            <label class="mdl-textfield__label" for="task">Task...</label>
+          </div>
+          <p class="primaryColor">
+            for
+            <span id="duration">15 minutes</span>
+          </p>
+          <p>
+            <input class="mdl-slider mdl-js-slider" id="duration_slider" type="range" min="1" max="25" value="15" tabindex="0">
+          </p>
+        </form>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <span class="primaryColor">
+          Record
+        </span>
+        <div id="record-container">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Task</th>
+                <th>Total Duration</th>
+                <th>Last Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric" colspan="3">No tasks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <button id="play" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored float-button">
+      <i class="material-icons">play_arrow</i>
+    </button>
+  </section>
+
+  <section id="current_task" class="card-container none">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Current Task</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <span class="timer" id="task_timer"></span>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="aBreak" disabled="disabled">
+          I deserve a break
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="break" class="card-container none">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Break</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <form action="#">
+          <p class="primaryColor">
+            for
+            <span id="breakDuration">4 minutes</span>
+          </p>
+          <p>
+            <input class="mdl-slider mdl-js-slider" id="break_slider" type="range" min="3" max="5" value="4" tabindex="0">
+          </p>
+        </form>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="runBreak">
+          Let's break!
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="current_break" class="card-container none">
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Current break</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <span class="timer" id="break_timer"></span>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="newTask" disabled="disabled">
+          New task
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <datalist id="taskList"></datalist>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="dist/js/pomodoro.min.js"></script>
+  <script src="./dist/js/mdl-jquery-modal-dialog.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+body {
+  background: #fafafa;
+  display: table; }
+
+.card-container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }
+
+#record-container {
+  height: 150px;
+  overflow-y: auto;
+  padding: 10px 20px; }
+
+#record-container table {
+  width: 100%; }
+
+.demo-card-wide.mdl-card {
+  width: 512px;
+  margin: 0 auto; }
+
+#primary .demo-card-wide > .mdl-card__title {
+  color: #ffffff;
+  height: 176px;
+  background: url("../img/pomodoro.png") center/cover; }
+
+#current_task .demo-card-wide > .mdl-card__title {
+  color: #ffffff;
+  height: 176px;
+  background: url("../img/task.jpg") center/cover; }
+
+#break .demo-card-wide > .mdl-card__title {
+  color: #ffffff;
+  height: 176px;
+  background: url("../img/break.jpeg") center/cover; }
+
+#current_break .demo-card-wide > .mdl-card__title {
+  color: #ffffff;
+  height: 176px;
+  background: url("../img/runBreak.jpeg") center/cover; }
+
+.demo-card-wide > .mdl-card__menu {
+  color: #ffffff; }
+
+#primary form {
+  margin: 10px 20px; }
+
+.primaryColor {
+  color: #303f9f; }
+
+.accentColor {
+  color: #ff5252; }
+
+.float-button {
+  display: block;
+  position: fixed;
+  right: 24px;
+  bottom: 56px;
+  z-index: 100; }
+
+.none {
+  display: none; }
