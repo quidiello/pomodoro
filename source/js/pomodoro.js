@@ -2,6 +2,8 @@ var timerWorker;
 var storage  = localStorage;
 
 $(function() {
+  Notification.requestPermission();
+
   /* update interface */
   updateInterfaceStorage();
 
@@ -45,6 +47,7 @@ $(function() {
         if (e.data === 0) {
           timerWorker.terminate();
           $('#aBreak').prop('disabled', false);
+          showNotification($('#task').val(), "task");
         }
       };
     } else {
@@ -88,6 +91,7 @@ $(function() {
         if (e.data === 0) {
           timerWorker.terminate();
           $('#newTask').prop('disabled', false);
+          showNotification("Break", "break");
         }
       };
     } else {
@@ -97,6 +101,9 @@ $(function() {
 
   /* newTask button */
   $('#newTask').on('click', function() {
+    /* update interface */
+    updateInterfaceStorage();
+
     $('#current_break').addClass("none");
     $('#primary').removeClass("none");
     $('#newTask').prop('disabled', true);
@@ -133,4 +140,30 @@ $(function() {
       }
     }
   }
+
+  function showNotification(task, type) {
+    if(Notification.permission === "granted") {
+      var title;
+      var extra;
+      if(type === "task") {
+        title = task;
+        extra = {
+          icon: "/dist/img/prueba.png",
+          body: "The task '" + task + "' has finished. You deserve a break!",
+          vibrate: [300,100,300]
+        };
+      }
+      else {
+        title = "Break";
+        extra = {
+          icon: "/dist/img/breakLogo.jpg",
+          body: "Your break has finished. Back to work!",
+          vibrate: [300,100,300]
+        };
+      }
+      var notification = new Notification(title, extra);
+      setTimeout(function() {notification.close();}, 10000);
+    }
+  }
+
 });
